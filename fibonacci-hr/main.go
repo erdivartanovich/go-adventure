@@ -2,22 +2,20 @@ package main
 
 import "fmt"
 
-func fibonacci(n int) int {
-	x, y, z := 0, 1, 0
-
-	f := func() {
-		x, y, z = y, x+y, x
+func fib(n int) int {
+	if n == 1 {
+		return 1
+	}
+	if n == 0 {
+		return 0
 	}
 
-	for i := 0; i <= n; i++ {
-		f()
-	}
-	return z
+	return fib(n-2) + fib(n-1)
 }
 
 func main() {
 	var n int
 	n = 6
 	// fmt.Scanf("%d\n", &n)
-	fmt.Println(fibonacci(n))
+	fmt.Println(fib(n))
 }
